@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "bot.qid",
+      "type": "java.lang.Long",
+      "description": "qq id."
+    },
+    {
+      "name": "bot.password",
+      "type": "java.lang.String",
+      "description": "qq password."
+    }
+  ]
+}
