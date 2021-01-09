@@ -4,6 +4,9 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import net.mamoe.mirai.BotFactory
 import net.mamoe.mirai.alsoLogin
+import net.mamoe.mirai.message.data.AtAll
+import net.mamoe.mirai.message.data.PlainText
+import net.mamoe.mirai.message.data.buildMessageChain
 import org.springframework.stereotype.Component
 
 @Component
@@ -24,5 +27,12 @@ class QBotHandler(config: UserConfig) {
 
     suspend fun sendGroupMsg(groupId: Long, msg: String) {
         bot.getGroup(groupId)?.sendMessage(msg)
+    }
+
+    suspend fun sendGroupAtAllMsg(groupId: Long, msg: String) {
+        bot.getGroup(groupId)?.sendMessage(buildMessageChain {
+            +PlainText(msg)
+            +AtAll
+        })
     }
 }

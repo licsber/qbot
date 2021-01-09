@@ -22,4 +22,11 @@ class MsgController(val qbot: QBotHandler) {
             qbot.sendGroupMsg(id, msg)
         }
     }
+
+    @PostMapping("/amsg/{id}")
+    fun sendGroupAtAllMsg(@PathVariable id: Long, @RequestParam("msg") msg: String) {
+        GlobalScope.launch {
+            qbot.sendGroupAtAllMsg(id, msg)
+        }
+    }
 }
